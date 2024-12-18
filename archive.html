@@ -27,3 +27,16 @@ comments: false
     </h3> 
   </article>
 {%- endfor -%}
+
+{%- for post in site.posts -%}
+  {%- capture tag -%}{{ post.tags | tags: "%Y" }}{%- endcapture -%}
+  {%- unless tag == previous_year -%}
+    <h2>{{ tag }}</h2>
+    {%- assign previous_year = tag -%}
+  {%- endunless -%}
+  <article class="post-item">
+    <h3 class="post-item-title">
+      <a href="{{ post.url }}">{{ post.title | escape }}</a>
+    </h3> 
+  </article>
+{%- endfor -%}

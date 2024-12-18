@@ -190,9 +190,9 @@
   }
 
   .author-avatar {
-    width: 70px;
-    height: 70px;
-    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    border-radius: 16%;
     user-select: none;
     background-color: $black;
     -ms-user-select: none;
@@ -200,11 +200,22 @@
     -webkit-animation: 0.5s ease-in forwards fadein;
     animation: 0.5s ease-in forwards fadein;
     opacity: 1;
+
+    @include media-query($on-mobile) {
+      width: 70px;
+      height: 70px;
+      border-radius: 100%;
+    }
   }
 
   .author-name {
     font-size: 1.7em;
+    margin-top: 24px;
     margin-bottom: 2px;
+
+    .author-name-accent {
+      color: $text-link;
+    }
   }
 
   .author-bio {
@@ -312,17 +323,17 @@
     font-weight: $bold-weight;
     line-height: 1.1;
     color: $black;
-    text-shadow: 1px 0px 0px $text-link-blue;
+    text-shadow: 1px 0px 0px $text-link;
   }
   .phrase {
     color: $text-base-color;
   }
   .solution {
-    color: $text-link-blue;
+    color: $text-link;
     letter-spacing: 0.5px;
   }
   .solution:hover {
-    color: $text-link-blue-active;
+    color: $text-link-active;
   }
 }
 

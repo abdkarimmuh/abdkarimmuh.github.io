@@ -1,9 +1,31 @@
 <div class="author">
+  {%- if site.theme == 'dark' -%}
   <img
+    id="author-avatar"
+    class="author-avatar"
+    src="{{ site.author.avatar_dark }}"
+    alt="{{ site.author.username }}"
+  />
+  {% else %}
+  <img
+    id="author-avatar"
     class="author-avatar"
     src="{{ site.author.avatar }}"
     alt="{{ site.author.username }}"
   />
-  <h2 class="author-name">{{ site.author.name }}</h2>
+  {% endif %}
+  <h2 class="author-name"><span class="author-name-accent">abd</span>Karim.</h2>
   <p class="author-bio">{{ site.author.bio }}</p>
 </div>
+
+<script>
+  const initAvatar = (theme) => {
+    if (theme === "dark") {
+      document.getElementById("author-avatar").src = "{{ site.author.avatar_dark }}";
+    } else {
+      document.getElementById("author-avatar").src = "{{ site.author.avatar }}";
+    }
+  };
+  
+  document.addEventListener('DOMContentLoaded', initAvatar(localStorage.getItem("theme")));
+</script>
